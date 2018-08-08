@@ -6,7 +6,7 @@
 	<script type="text/javascript" src="https://www.cdn.lamhotsimamora.com/garuda2/"></script>
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Laporan Peserta Berdasarkan Tanggal Lahir</title>
+	<title>Laporan Data Peserta Berdasarkan Tanggal Lahir</title>
 </head>
 <body>
 	<br><br>
@@ -15,7 +15,7 @@
 		<br><br>
 		
 		<div class="text-center">
-			<h4>Laporan Peserta Berdasarkan Tanggal Lahir</h4>
+			<h4>Laporan Data Peserta Berdasarkan Tanggal Lahir</h4>
 		</div>
 		<br>
 				<div class="table-responsive">

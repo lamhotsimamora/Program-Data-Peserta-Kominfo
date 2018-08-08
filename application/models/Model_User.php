@@ -68,4 +68,15 @@ class Model_User extends CI_Model {
 		$result = $this->db->delete('t_user');
 		return $result ? true : false;
     }
+
+
+    public function checkNik($nik)
+    {
+        $nik = addslashes($nik);
+
+        $query = $this->db->query("select id from t_user where nik=".$nik." limit 1");
+        $jumlah =  $query->num_rows();
+        return $jumlah;
+       // return $jumlah>0 ? true : false;
+    }
 }

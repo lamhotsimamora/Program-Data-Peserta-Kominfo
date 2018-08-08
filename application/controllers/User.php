@@ -183,4 +183,12 @@ class User extends CI_Controller {
 			echo "F1";
 		}
 	}
+
+	public function checkNIK()
+	{
+		$nik = 1503082812930002;
+		$result = $this->Model_User->checkNik($nik);
+
+		var_dump($result);
+	}
 }
