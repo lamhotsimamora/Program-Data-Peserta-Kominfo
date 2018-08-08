@@ -101,7 +101,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<footer>
 				 <br>
 				 <hr>
-				<button class="btn btn-info btn-md" onclick="_scrollTo({el:'garuda_app'});">Go Up</button>
+				
 			</footer>
 	</div>
 
