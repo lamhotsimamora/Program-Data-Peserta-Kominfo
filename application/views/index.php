@@ -28,7 +28,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<br><br>
 	
 	<div class="container">
-		<h3 class="text-center">Aplikasi Database Peserta</h3>
+		<h3 class="text-center">Aplikasi Sederhana Peserta Sertifikasi</h3>
 		<br>
 		
 		<hr>
@@ -40,12 +40,39 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<button class="btn btn-default btn-md" onclick="showTemplateAdd();">Add Data</button> &nbsp
 		<button class="btn btn-success btn-md" onclick="loadData();">Refresh</button> <br>
 		<br>
-		<input type="text" id="txt_search" onkeypress="enterSearch(event);" placeholder="Search User" class="form-control" name="">
-		<hr>
+		<div class="text-center">
+			<h3>Total Peserta : <strong id="display_total_user"></strong></h3>
+		</div>
 		<br>
-		<div id="template-profile" style="display: none">
+		<input type="text" id="txt_search" onkeypress="enterSearch(event);" placeholder="Search User" class="form-control" name="">
+		
+		<div id="template-profile">
 			
-				@start@
+			<div class="table-responsive">
+				    <table class="table">
+				      <thead>
+				        <tr>
+				          <th>#</th>
+				          <th>NIK</th>
+				          <th>Nama</th>
+				          <th>Email</th>
+				          <th>Skema</th>
+				          <th>No HP</th>
+				          <th>Lokasi Ujian</th>
+				          <th>Tgl Terbit Sertifikat</th>
+				          <th>Tgl Lahir</th>
+				          <th>Organisasi</th>
+				          <th>Rekomendasi</th>
+				        </tr>
+				      </thead>
+				      <tbody id="display_user_table">
+				       		
+				      </tbody>
+				    </table>
+				  </div>
+				</div>
+
+				<!-- @start@
 						<div class="card">
 						  <h5 class="card-header">Nama : #name#</h5>
 						  <div class="card-body">
@@ -55,14 +82,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						    No HP : #phone#
 							</p>
 							<br>
-						    <center>
-						    	<button class="btn btn-warning btn-xs" id="#id_user#" onclick="viewUpdateData(this)">Update</button>
+						    <center><button class="btn btn-warning btn-xs" id="#id_user#" onclick="viewUpdateData(this)">Update</button>
 						    	<button class="btn btn-danger btn-xs" id="#id_user#" onclick="viewDeleteData(this.id);">Delete</button>
 						    </center>
 						  </div>
 						</div>
 						<br>
-				@end@
+				@end@ -->
 		</div>
 
 	</div>
@@ -98,7 +124,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		  <div class="input-group-prepend">
 		    <span class="input-group-text" id="basic-addon1">Tanggal Lahir</span>
 		  </div>
-			  <input type="date" onkeypress="enterAdd(event);" value="<?= _getDate(); ?>" class="form-control" id="txt_birthday" placeholder="Tanggal Lahir" name=""><br>
+			  <input type="date" onkeypress="enterAdd(event);" max="2018-08-08" class="form-control" id="txt_birthday" placeholder="Tanggal Lahir" name=""><br>
 		</div>
 
 		<div class="input-group mb-3">
@@ -106,7 +132,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		    <span class="input-group-text" id="basic-addon1">Tanggal Terbit Sertifikat</span>
 		  </div>
 			
-			<input type="date" onkeypress="enterAdd(event);" class="form-control" id="tgl_terbit_serti" placeholder="Tanggal Terbit Sertifikat" name="">
+			<input type="date" onkeypress="enterAdd(event);" max="2018-09-01" class="form-control" id="txt_tgl_sertifikat" placeholder="Tanggal Terbit Sertifikat" name="">
 		<br>
 		
 		</div>

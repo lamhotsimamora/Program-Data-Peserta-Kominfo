@@ -39,7 +39,7 @@ class User extends CI_Controller {
 		{
 			$data['name']        = addslashes(trim($_POST['name'])); 
 			$data['email']       = addslashes(trim($_POST['email'])); 
-			$data['NIK']         = addslashes(trim($_POST['nik'])); 
+			$data['nik']         = addslashes(trim($_POST['nik'])); 
 			$data['phone']       = addslashes(trim($_POST['phone']));
 
 			$data['tgl_lahir']       = addslashes(trim($_POST['tgl_lahir'])); 
@@ -48,11 +48,13 @@ class User extends CI_Controller {
 			$data['organisasi']       = addslashes(trim($_POST['organisasi']));
 
 			$data['id_skema']       = addslashes(trim($_POST['skema'])); 
-			$data['id_tempat_uji']       = addslashes(trim($_POST['lokasi'])); 
+			$data['id_tempat_uji']       = addslashes(trim($_POST['lokasi']));
+
+			$data['rekomendasi'] = 'Kompeten'; 
 
 			if ($data['name']=='' || 
 				$data['email']=='' || 
-				$data['NIK']=='' || 
+				$data['nik']=='' || 
 				$data['phone']=='' ||
 				$data['tgl_lahir']=='' ||
 				$data['tgl_sertifikat']=='' ||
@@ -86,7 +88,6 @@ class User extends CI_Controller {
 			$id         = addslashes(trim($_POST['id'])); 
 			$name       = addslashes(trim($_POST['name'])); 
 			$email      = addslashes(trim($_POST['email'])); 
-			$address    = addslashes(trim($_POST['address'])); 
 			$phone    = addslashes(trim($_POST['phone'])); 
 
 			if ($name=='' || $email=='' || $address=='' || $id=='' || $phone=='')

@@ -18,40 +18,40 @@ function loadData(type=false)
 			{
 				return;
 			}
+			Garuda('display_total_user').setContent(" "+user.length);
+
+			var tmplate = '';
 			for (var i = 0; i < user.length; i++) 
 			{
-				var _skema_ = user[i].id_skema;
+				var nik = user[i].nik;
+				var name = user[i].name;
+				var email = user[i].email;
+				var nama_skema = user[i].nama_skema;
+				var phone = user[i].phone;
+				var tempat_uji = user[i].tempat_uji;
+				
+				var tgl_sertifikat = user[i].tgl_sertifikat;
+				var tgl_lahir = user[i].tgl_lahir;
+				var organisasi = user[i].organisasi;
 
-				data[i] = {
-					id_user  : user[i].id,
-					name     : user[i].name,
-					email    : user[i].email,
-					address  : user[i].address,
-					phone    : user[i].phone,
-					nik      : user[i].nik,
-					skema    : _skema_,
-					object_data: [ " name:'"+user[i].id+"'", 
-									" email:'"+user[i].email+"'", 
-									" address:'"+user[i].address+"' " 
-								]
-				}
+				var rekomendasi = user[i].rekomendasi;
+
+				tmplate  += ` <tr>
+						          <td>${i+1}</td>
+						          <td>${nik}</td>
+						          <td>${name}</td>
+						          <td>${email}</td>
+						          <td>${nama_skema}</td>
+						          <td>${phone}</td>
+
+						          <td>${tempat_uji}</td>
+						          <td>${tgl_sertifikat}</td>
+						          <td>${tgl_lahir}</td>
+						          <td>${organisasi}</td>
+						          <td>${rekomendasi}</td>
+						        </tr>`;
 			}
-
-			if (type)
-			{
-				$profile.setContent({
-					multi:data
-				});
-
-				$profile.show();
-			}else{
-				$profile.setContent(component_app);
-				$profile.setContent({
-					multi:data
-				});
-
-				$profile.show();
-			}
+			Garuda('display_user_table').setContent(tmplate);
 		}
 	});
 }
@@ -66,12 +66,7 @@ function showTemplateAdd()
 	$app.setContent($template_add.getHtml);
 
 	Garuda('txt_name').focus();
-	Garuda('txt_name').setValue('Lamhot Simamora');
-	Garuda('txt_nik').setValue('1234567890123456');
-	Garuda('txt_email').setValue('lamhot@gmail.com');
-	Garuda('txt_address').setValue('Jambi');
-	Garuda('txt_phone').setValue('082289953600');
-
+	
 	loadSkema();
 	loadLokasiUjian();
 }
@@ -196,7 +191,7 @@ function addData()
 	      email:email,
 	      phone:phone,
 	      skema:skema_programming.value,
-	      lokasi:lokasi,
+	      lokasi:lokasi.value,
 	      tgl_lahir:birthday,
 	      tgl_serti:tgl_terbit_serti,
 	      organisasi:organisasi
@@ -210,8 +205,8 @@ function addData()
 	 	  	 Garuda('txt_name').clearValue();
 	 	  	 Garuda('txt_email').clearValue();
 	 	  	 Garuda('txt_phone').clearValue();
+	 	  	 Garuda('txt_nik').clearValue();
 	 	  	 Garuda('txt_name').focus();
-	 	  	 Garuda('txt_nik').focus();
 	 	  }else{
 	 	  	 Garuda('msg-show').setContent(displayAlert('Failed to add data !','warning'));
 	 	  }
@@ -336,7 +331,7 @@ function viewDeleteData(id)
 		 	  if ($==='T')
 		 	  {
 		 	  	 Garuda('display_message').setContent(displayAlert('Data has been deleted !','success'));
-		 	  	 loadData();
+		 	  	 _refresh();
 		 	  }else{
 		 	  	 Garuda('display_message').setContent(displayAlert('Failed to deleted data !','warning'));
 		 	  }
@@ -391,6 +386,7 @@ function searchUser()
 						email    : user[i].email,
 						address  : user[i].address,
 						phone   : user[i].phone,
+						nik : user[i].nik,
 						object_data: [ " name:'"+user[i].id+"'", " email:'"+user[i].email+"'", " address:'"+user[i].address+"' " ]
 					}
 					count_data++;

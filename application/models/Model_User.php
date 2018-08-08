@@ -14,7 +14,7 @@ class Model_User extends CI_Model {
      */
     public function getData()
     {
-    	$query = $this->db->get('t_user',30);
+    	$query = $this->db->get('view_display_user');
     	return $query->result_array();
     }
 
@@ -56,7 +56,6 @@ class Model_User extends CI_Model {
     {
 		$this->db->set('name', $name, true);
 		$this->db->set('email', $email, true);
-        $this->db->set('address', $address, true);
 		$this->db->set('phone', $phone, true);
 		$this->db->where('id', $id);
 		$result = $this->db->update('t_user');
