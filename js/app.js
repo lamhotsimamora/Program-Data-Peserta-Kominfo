@@ -365,42 +365,50 @@ function searchUser()
 	});
 
 	$search_user.request($response=>{
-		var obj = JSON.parse($response);
+			var obj = JSON.parse($response);
 		
-		if (obj)
-		{
+		if (obj){
 			var user = obj.user;
 
+			var data = new Array();
 			if (user.length==0)
 			{
-				Garuda('display_message').setContent(displayAlert('Data {'+name+'} not found !','warning'));
 				return;
-			}else{
-				var data = new Array();
-				var count_data = 1;
-				for (var i = 0; i < user.length; i++) 
-				{
-					data[i] = {
-						id_user  : user[i].id,
-						name     : user[i].name,
-						email    : user[i].email,
-						address  : user[i].address,
-						phone   : user[i].phone,
-						nik : user[i].nik,
-						object_data: [ " name:'"+user[i].id+"'", " email:'"+user[i].email+"'", " address:'"+user[i].address+"' " ]
-					}
-					count_data++;
-				}
-
-				$profile.setContent(component_app);
-				$profile.setContent({
-					multi:data
-				});
-
-				$profile.show();
-				Garuda('display_message').setContent(displayAlert('Count Data {'+count_data+'} !','success'));
 			}
+			Garuda('display_total_user').setContent(" "+user.length);
 
-		}
+			var tmplate = '';
+			for (var i = 0; i < user.length; i++) 
+			{
+				var nik = user[i].nik;
+				var name = user[i].name;
+				var email = user[i].email;
+				var nama_skema = user[i].nama_skema;
+				var phone = user[i].phone;
+				var tempat_uji = user[i].tempat_uji;
+				
+				var tgl_sertifikat = user[i].tgl_sertifikat;
+				var tgl_lahir = user[i].tgl_lahir;
+				var organisasi = user[i].organisasi;
+
+				var rekomendasi = user[i].rekomendasi;
+
+				tmplate  += ` <tr>
+						          <td>${i+1}</td>
+						          <td>${nik}</td>
+						          <td>${name}</td>
+						          <td>${email}</td>
+						          <td>${nama_skema}</td>
+						          <td>${phone}</td>
+
+						          <td>${tempat_uji}</td>
+						          <td>${tgl_sertifikat}</td>
+						          <td>${tgl_lahir}</td>
+						          <td>${organisasi}</td>
+						          <td>${rekomendasi}</td>
+						        </tr>`;
+			}
+			Garuda('display_user_table').setContent(tmplate);
+	 }	
 	});
 }

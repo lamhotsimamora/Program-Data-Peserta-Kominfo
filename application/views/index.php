@@ -38,7 +38,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		
 		<div id="display_message"> </div>
 		<button class="btn btn-default btn-md" onclick="showTemplateAdd();">Add Data</button> &nbsp
-		<button class="btn btn-success btn-md" onclick="loadData();">Refresh</button> <br>
+		<button class="btn btn-success btn-md" onclick="loadData();">Refresh</button>
+		<button class="btn btn-primary btn-md" onclick="_refresh('http://localhost/Program-Data-Peserta-Kominfo/index.php/Laporan/');">Laporan</button> <br>
 		<br>
 		<div class="text-center">
 			<h3>Total Peserta : <strong id="display_total_user"></strong></h3>
@@ -71,26 +72,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				    </table>
 				  </div>
 				</div>
-
-				<!-- @start@
-						<div class="card">
-						  <h5 class="card-header">Nama : #name#</h5>
-						  <div class="card-body">
-						    <p class="card-text">NIK 	: #nik#</p>
-						    <p class="card-text">Email  : #email#</p>
-						    <p class="card-text">
-						    No HP : #phone#
-							</p>
-							<br>
-						    <center><button class="btn btn-warning btn-xs" id="#id_user#" onclick="viewUpdateData(this)">Update</button>
-						    	<button class="btn btn-danger btn-xs" id="#id_user#" onclick="viewDeleteData(this.id);">Delete</button>
-						    </center>
-						  </div>
-						</div>
-						<br>
-				@end@ -->
 		</div>
-
+			
 	</div>
 
 

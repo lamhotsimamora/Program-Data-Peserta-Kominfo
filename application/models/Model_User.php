@@ -35,7 +35,7 @@ class Model_User extends CI_Model {
     public function searchUser($name)
     {
     	$this->db->like('name', $name);
-    	$query = $query = $this->db->get('t_user',30);
+    	$query = $query = $this->db->get('view_display_user');
     	return $query->result_array();
     }
 
