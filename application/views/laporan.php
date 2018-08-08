@@ -6,7 +6,7 @@
 	<script type="text/javascript" src="https://www.cdn.lamhotsimamora.com/garuda2/"></script>
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Laporan Data Peserta Berdasarkan Tanggal Lahir</title>
+	<title>Laporan Data Peserta Berdasarkan Skema</title>
 </head>
 <body>
 	<br><br>
@@ -15,7 +15,7 @@
 		<br><br>
 		
 		<div class="text-center">
-			<h4>Laporan Data Peserta Berdasarkan Tanggal Lahir</h4>
+			<h4>Laporan Data Peserta Berdasarkan Skema</h4>
 		</div>
 		<br>
 				<div class="table-responsive">
@@ -54,13 +54,13 @@
 					var tmplate = "";
 					for (var i = 0; i < data.length; i++) {
 
-						var total = data[i].TOTAL;
-						var tgl_lahir = data[i].tgl_lahir;
+						var total = data[i].Total + " Orang";
+						var nama = data[i].nama_skema;
 
 						tmplate += `<tr>
-						          		<td>${tgl_lahir}</td>
+						          		<td>${nama}</td>
 						          		<td>${total}</td>
-						          		<td><button id="${i}" onclick="showDetail(this)" name="${tgl_lahir}" class="btn btn-warning btn-md">
+						          		<td><button id="${i}" onclick="showDetail(this)" name="" class="btn btn-warning btn-md">
 											Detail
 						          		</button></td>
 						      		</tr>`;

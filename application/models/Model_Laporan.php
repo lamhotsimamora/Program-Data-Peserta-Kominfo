@@ -10,7 +10,7 @@ class Model_Laporan extends CI_Model {
 
     public function getData()
     {
-    	$query = $this->db->query('call showUser()');
+    	$query = $this->db->get('view_data_skema');
     	return $query;
     }
 }
